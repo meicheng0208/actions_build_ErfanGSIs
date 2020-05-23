@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://hugeota.d.miui.com/20.5.21/miui_LAVENDER_20.5.21_ee1e48ebad_10.0.zip
+  ROM_URL: https://hugeota.d.miui.com/20.5.21/miui_MI8Lite_20.5.21_4c776d4d43_10.0.zip
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
@@ -55,12 +55,12 @@ jobs:
        
        - name: 7z Aonly GSI
          run: |
-           7za a -t7z -r NOTE7_Aonly_20.5.21.7z ErfanGSIs/output/*
+           7za a -t7z -r MI8Lite_Aonly_20.5.21.7z ErfanGSIs/output/*
        
        - name: Upload Aonly GSI to WeTransfer
          run: |
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet NOTE7_Aonly_20.5.21.7z
+              ./transfer wet Mi8lite_Aonly_20.5.21.7z
            
 #       - name: Make clean
 #         run: sudo rm -rf ErfanGSIs/output/*

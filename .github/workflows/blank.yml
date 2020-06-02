@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL: http://hugeota.d.miui.com/20.6.1/miui_MIMIX2_20.6.1_818b083de4_9.0.zip
-  ROM_NAME: MIUI MIMIX2
+  ROM_URL: https://222-84-158-1.ksyungslb.com/bigota.d.miui.com/20.6.1/miui_MI6_20.6.1_d6516060cb_9.0.zip
+  ROM_NAME: MI6
   TZ: Asia/Shanghai
 
 jobs:
@@ -55,12 +55,12 @@ jobs:
        
        - name: 7z Aonly GSI
          run: |
-           7za a -t7z -r MIMIX2_Aonly_20.6.01.7z ErfanGSIs/output/*
+           7za a -t7z -r MI6_Aonly_20.6.01.7z ErfanGSIs/output/*
        
        - name: Upload Aonly GSI to WeTransfer
          run: |
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet MIMIX2_Aonly_20.6.01.7z
+              ./transfer wet MI6_Aonly_20.6.01.7z
            
 #       - name: Make clean
 #         run: sudo rm -rf ErfanGSIs/output/*

@@ -52,7 +52,7 @@ jobs:
          run: |
            7za a -t7z -r MI6X_20.6.12_Aonly.7z ErfanGSIs/output/*
        
-       - name: Upload Aonly GSI to WeTransfer
+       - name: Upload GSI
          run: |
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet MI6X_20.6.12_Aonly.7z
+              sudo ./transfer bit MI6X_20.6.12_Aonly.7z

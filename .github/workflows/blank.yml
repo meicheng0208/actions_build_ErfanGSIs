@@ -45,16 +45,14 @@ jobs:
        - name: Download Stock Rom & Generate GSI
          run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME --ab
        
-       - name: Compassing GSI
-         run: |
-              mkdir releasing
-              sudo mv /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/* releasing/
-              echo "Deleting ErfanGSIs tools"
-              sudo rm -rf ErfanGSIs 
-              echo "Compassing GSI with 7zip"
-              sudo 7z a -r GSI-AB.7z releasing/MIUI-AB-*-*-ErfanGSI.img
+       - name: Download Stock Rom & Generate Aonly GSI
+         run: sudo ./ErfanGSIs/url2GSI.sh -a $ROM_URL $ROM_NAME
        
-       - name: Upload GSI
+       - name: 7z Aonly GSI
+         run: |
+           7za a -t7z -r MI6X_20.6.9_Aonly.7z ErfanGSIs/output/*
+       
+       - name: Upload Aonly GSI to WeTransfer
          run: |
               curl -sL https://git.io/file-transfer | sh
-              sudo ./transfer bit GSI-AB.7z
+              ./transfer wet MI6X_20.6.9_Aonly.7z

@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://hugeota.d.miui.com/20.5.21/miui_HMNote5_20.5.21_2f072b7ae5_9.0.zip
+  ROM_URL: http://bigota.d.miui.com/20.6.9/miui_MI6X_20.6.9_826993fbbb_9.0.zip
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
@@ -42,19 +42,14 @@ jobs:
            sudo apt update
            sudo bash setup.sh
        
-       - name: Download Stock Rom & Generate GSI
-         run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME --ab
+       - name: Download Stock Rom & Generate Aonly GSI
+         run: sudo ./ErfanGSIs/url2GSI.sh -a $ROM_URL $ROM_NAME
        
-       - name: Compassing GSI
+       - name: 7z Aonly GSI
          run: |
-              mkdir releasing
-              sudo mv /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/* releasing/
-              echo "Deleting ErfanGSIs tools"
-              sudo rm -rf ErfanGSIs 
-              echo "Compassing GSI with 7zip"
-              sudo 7z a -r GSI-AB.7z releasing/MIUI-AB-*-*-ErfanGSI.img
+           7za a -t7z -r MI6X_20.6.9_Aonly.7z ErfanGSIs/output/*
        
-       - name: Upload GSI
+       - name: Upload Aonly GSI to WeTransfer
          run: |
               curl -sL https://git.io/file-transfer | sh
-              sudo ./transfer bit GSI-AB.7z
+              ./transfer wet MI6X_20.6.9_Aonly.7z

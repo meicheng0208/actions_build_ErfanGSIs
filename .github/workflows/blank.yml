@@ -5,7 +5,7 @@ on:
 #    types: [published]
 #  push:
 #    branches:
-#      - master
+#      - 
 #    paths:
 #      - '.config'
 #  schedule:
@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://58-49-136-2.ksyungslb.com/bigota.d.miui.com/9.11.14/miui_MI8Lite_9.11.14_00a1ef5c5e_9.0.zip?ksy_gslb_referer=https%3A%2F%2Froms.miuier.com%2Fdevices%2Fplatina
+  ROM_URL: http://bigota.d.miui.com/20.6.9/miui_MI6X_20.6.9_826993fbbb_9.0.zip
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
@@ -26,55 +26,35 @@ jobs:
     steps:
        - name: Checkout
          uses: actions/checkout@master
-       
-       - name: Clean Up
+         
+       - name: Cleaning up
          run: |
            docker rmi `docker images -q`
-           sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
-           sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
-           sudo -E apt-get update
-           sudo -E apt-get -y autoremove --purge
-           sudo -E apt-get clean 
-           
-       - name: Initialization environment
+
+       - name: Cloning ErfanGSIs tools
          run: |
-            sudo -E apt-get -qq update
-            sudo -E apt-get -qq install git openjdk-8-jdk p7zip
-       
-       - name: Clone ErfanGSI Source Code
-         run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git
-       
-       - name: Setting up ErfanGSI requirements
+            git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git
+            sudo chmod -R 777 ErfanGSIs
+             
+       - name: Setting up Porting Environment
          run: |
-              sudo chmod -R 777 ErfanGSIs
-              cd ErfanGSIs
-              sudo bash setup.sh
+           cd ErfanGSIs
+           sudo apt update
+           sudo bash setup.sh
        
-       - name: Download Stock Rom & Generate Aonly GSI
-         run: sudo ./ErfanGSIs/url2GSI.sh -a $ROM_URL $ROM_NAME
+       - name: Download Stock Rom & Generate GSI
+         run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME --ab
        
-       - name: 7z Aonly GSI
+       - name: Compassing GSI
          run: |
-           7za a -t7z -r MI8Lite_9.11.14.7z ErfanGSIs/output/*
+              mkdir releasing
+              sudo mv /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/* releasing/
+              echo "Deleting ErfanGSIs tools"
+              sudo rm -rf ErfanGSIs 
+              echo "Compassing GSI with 7zip"
+              sudo 7z a -r GSI-AB.7z releasing/MIUI-AB-*-*-ErfanGSI.img
        
-       - name: Upload Aonly GSI to WeTransfer
+       - name: Upload GSI
          run: |
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet MI8Lite_9.11.14.7z
-           
-#       - name: Make clean
-#         run: sudo rm -rf ErfanGSIs/output/*
-         
-#       - name: Download Stock Rom & Generate AB GSI
-#         run: sudo ./ErfanGSIs/url2GSI.sh -b $ROM_URL $ROM_NAME
-
-#       - name: 7z AB GSI
-#         run: |
-#           7za a -t7z -r AB_GSI.7z ErfanGSIs/output/*
-
-#       - name: Upload AB GSI to WeTransfer
-#         run: |
-#              curl -sL https://git.io/file-transfer | sh
-#              ./transfer wet AB_GSI.7z
-         
-            
+              sudo ./transfer bit GSI-AB.7z

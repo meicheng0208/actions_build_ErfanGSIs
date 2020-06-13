@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: http://bigota.d.miui.com/20.6.9/miui_MI6X_20.6.9_826993fbbb_9.0.zip
+  ROM_URL: https://hugeota.d.miui.com/20.6.11/miui_HMNote5_20.6.11_cfd31b6986_9.0.zip
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
@@ -42,17 +42,17 @@ jobs:
            sudo apt update
            sudo bash setup.sh
        
-       - name: Download Stock Rom & Generate GSI
-         run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME --ab
+#       - name: Download Stock Rom & Generate GSI
+#         run: sudo ./ErfanGSIs/url2GSI.sh $ROM_URL $ROM_NAME --ab
        
        - name: Download Stock Rom & Generate Aonly GSI
          run: sudo ./ErfanGSIs/url2GSI.sh -a $ROM_URL $ROM_NAME
        
        - name: 7z Aonly GSI
          run: |
-           7za a -t7z -r MI6X_20.6.12_Aonly.7z ErfanGSIs/output/*
+           7za a -t7z -r HMNote5_20.6.11_Aonly.7z ErfanGSIs/output/*
        
        - name: Upload GSI
          run: |
               curl -sL https://git.io/file-transfer | sh
-              sudo ./transfer bit MI6X_20.6.12_Aonly.7z
+              sudo ./transfer bit HMNote5_20.6.11_Aonly.7z

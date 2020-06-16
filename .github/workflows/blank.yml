@@ -14,23 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://cloud189-liaoning-person.oos-
-
-lnsy.ctyunapi.cn/e32b2548-c80c-4297-acf3-f3309b272519?x-amz-
-
-UFID=11541210602329155&x-amz-CLIENTNETWORK=UNKNOWN&x-amz-
-
-SHID=169344678&x-amz-FSIZE=2051256752&Expires=1592301074&x-amz-
-
-UID=741439743&response-content-disposition=attachment
-
-%3Bfilename%3D%22MIUI12mi6_06_16.zip
-
-%22&AWSAccessKeyId=532482dfdc85e5d60592&x-amz-
-
-limitrate=10240&x-amz-CLOUDTYPEIN=PERSON&x-amz-
-
-CLIENTTYPEIN=WEB&Signature=c9Na8LXxqR9gqoJsXNAnp75xoAs%3D
+  ROM_URL: https://cloud189-liaoning-person.oos-lnsy.ctyunapi.cn/e32b2548-c80c-4297-acf3-f3309b272519?x-amz-UFID=11541210602329155&x-amz-CLIENTNETWORK=UNKNOWN&x-amz-SHID=169344678&x-amz-FSIZE=2051256752&Expires=1592301074&x-amz-UID=741439743&response-content-disposition=attachment%3Bfilename%3D%22MIUI12mi6_06_16.zip%22&AWSAccessKeyId=532482dfdc85e5d60592&x-amz-limitrate=10240&x-amz-CLOUDTYPEIN=PERSON&x-amz-CLIENTTYPEIN=WEB&Signature=c9Na8LXxqR9gqoJsXNAnp75xoAs%3D
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 

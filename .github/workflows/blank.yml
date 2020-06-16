@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://cloud189-xizang-person.oos-xzls.ctyunapi.cn/ee8508fd-0aa5-4f37-ba8e-32dfc1bc2b05?x-amz-UFID=11547210604231849&x-amz-CLIENTNETWORK=UNKNOWN&x-amz-SHID=169342998&x-amz-FSIZE=1992987124&Expires=1592306301&x-amz-UID=741439743&response-content-disposition=attachment%3Bfilename%3D%22MIUI12mi6_06_16.zip%22&AWSAccessKeyId=532482dfdc85e5d60592&x-amz-limitrate=10240&x-amz-CLOUDTYPEIN=PERSON&x-amz-CLIENTTYPEIN=WEB&Signature=cV8duWx8cInhUYfUkbrW5kRG6EE%3D
+  ROM_URL: https://hugeota.d.miui.com/20.6.11/miui_HMNote5_20.6.11_cfd31b6986_9.0.zip
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
@@ -55,12 +55,12 @@ jobs:
        
        - name: 7z Aonly GSI
          run: |
-           7za a -t7z -r Mi6_Aonly_201.7z ErfanGSIs/output/*
+           7za a -t7z -r Aonly_201.7z ErfanGSIs/output/*
        
        - name: Upload Aonly GSI to WeTransfer
          run: |
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet Mi6_Aonly_201.7z
+              ./transfer wet Aonly_201.7z
            
 #       - name: Make clean
 #         run: sudo rm -rf ErfanGSIs/output/*

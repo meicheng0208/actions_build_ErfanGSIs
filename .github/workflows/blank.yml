@@ -14,16 +14,14 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://cloud189-liaoning-person.oos-lnsy.ctyunapi.cn/e32b2548-c80c-4297-acf3-f3309b272519?x-amz-UFID=11541210602329155&x-amz-CLIENTNETWORK=UNKNOWN&x-amz-SHID=169344678&x-amz-FSIZE=2051256752&Expires=1592301074&x-amz-UID=741439743&response-content-disposition=attachment%3Bfilename%3D%22MIUI12mi6_06_16.zip%22&AWSAccessKeyId=532482dfdc85e5d60592&x-amz-limitrate=10240&x-amz-CLOUDTYPEIN=PERSON&x-amz-CLIENTTYPEIN=WEB&Signature=c9Na8LXxqR9gqoJsXNAnp75xoAs%3D
+  ROM_URL: https://cloud189-liaoning-person.oos-lnsy.ctyunapi.cn/e32b2548-c80c-4297-acf3-f3309b272519?x-amz-UFID=11541210602329155&x-amz-CLIENTNETWORK=UNKNOWN&x-amz-SHID=169344678&x-amz-FSIZE=2051256752&Expires=1592303994&x-amz-UID=741439743&response-content-disposition=attachment%3Bfilename%3D%22MIUI12mi6_06_16.zip%22&AWSAccessKeyId=532482dfdc85e5d60592&x-amz-limitrate=10240&x-amz-CLOUDTYPEIN=PERSON&x-amz-CLIENTTYPEIN=WEB&Signature=%2BKxsfcrZ44R/lQkr/rQDkgFmkuE%3D
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == 
-
-github.event.sender.id
+    if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
        - name: Checkout
@@ -32,12 +30,8 @@ github.event.sender.id
        - name: Clean Up
          run: |
            docker rmi `docker images -q`
-           sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php 
-
-/etc/apt/sources.list.d
-           sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm 
-
-llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+           sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
+           sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
            sudo -E apt-get update
            sudo -E apt-get -y autoremove --purge
            sudo -E apt-get clean 
@@ -48,9 +42,7 @@ llvm* firefox google* dotnet* powershell openjdk* mysql* php*
             sudo -E apt-get -qq install git openjdk-8-jdk p7zip
        
        - name: Clone ErfanGSI Source Code
-         run: git clone --recurse-submodules 
-
-https://github.com/erfanoabdi/ErfanGSIs.git
+         run: git clone --recurse-submodules https://github.com/erfanoabdi/ErfanGSIs.git
        
        - name: Setting up ErfanGSI requirements
          run: |
@@ -63,12 +55,12 @@ https://github.com/erfanoabdi/ErfanGSIs.git
        
        - name: 7z Aonly GSI
          run: |
-           7za a -t7z -r MI6_Aonly.7z ErfanGSIs/output/*
+           7za a -t7z -r Mi6_Aonly_20.7z ErfanGSIs/output/*
        
        - name: Upload Aonly GSI to WeTransfer
          run: |
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet MI6_Aonly.7z
+              ./transfer wet Mi6_Aonly_20.7z
            
 #       - name: Make clean
 #         run: sudo rm -rf ErfanGSIs/output/*

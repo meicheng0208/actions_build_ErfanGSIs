@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://cloud189-xizang-person.oos-xzls.ctyunapi.cn/1b8c26bc-db72-40af-b53b-101af59004dd?x-amz-UFID=11322210587082705&x-amz-CLIENTNETWORK=UNKNOWN&x-amz-SHID=169340048&x-amz-FSIZE=1757602087&Expires=1592200122&x-amz-UID=741439743&response-content-disposition=attachment%3Bfilename%3D%22MIUI12TESTmi6_20200604.zip%22&AWSAccessKeyId=532482dfdc85e5d60592&x-amz-limitrate=10240&x-amz-CLOUDTYPEIN=PERSON&x-amz-CLIENTTYPEIN=WEB&Signature=HWTBZjKYfcVulBk9qXfkfPD09kE%3D
+  ROM_URL: https://cloud189-xizang-person.oos-xzls.ctyunapi.cn/3c2a1014-f1be-440d-8fa3-ddda1386f75a?x-amz-UFID=6130129897441504&x-amz-CLIENTNETWORK=UNKNOWN&x-amz-SHID=169344488&x-amz-FSIZE=2684944414&Expires=1592295777&x-amz-UID=741439743&response-content-disposition=attachment%3Bfilename%3D%22miui_MI6%C3%A6%C2%B5%C2%8B%C3%A8%C2%AF%C2%95_20.6.4_fbe82eead6_9.0.zip%22&AWSAccessKeyId=532482dfdc85e5d60592&x-amz-limitrate=10240&x-amz-CLOUDTYPEIN=PERSON&x-amz-CLIENTTYPEIN=WEB&Signature=T5bSXM2UY0PJutE2XNdqB/15KYA%3D
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
@@ -50,9 +50,9 @@ jobs:
        
        - name: 7z Aonly GSI
          run: |
-           7za a -t7z -r MI6TEST_Aonly.7z ErfanGSIs/output/*
+           7za a -t7z -r MI6-06-16_Aonly.7z ErfanGSIs/output/*
        
        - name: Upload GSI
          run: |
               curl -sL https://git.io/file-transfer | sh
-              sudo ./transfer bit MI6TEST_Aonly.7z
+              sudo ./transfer bit MI6-06-16_Aonly.7z

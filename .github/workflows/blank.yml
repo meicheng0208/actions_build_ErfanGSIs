@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://cloud189-xizang-person.oos-xzls.ctyunapi.cn/18f96f39-1f3c-4eb3-a5d5-4251fef170c5?x-amz-UFID=41301210185715358&x-amz-CLIENTNETWORK=UNKNOWN&x-amz-SHID=169348323&x-amz-FSIZE=2155937200&Expires=1592380501&x-amz-UID=741439743&response-content-disposition=attachment%3Bfilename%3D%22miui_MI6%C3%A6%C2%B5%C2%8B%C3%A8%C2%AF%C2%95_20.6.4_fbe82eead6_9.0.zip%22&AWSAccessKeyId=532482dfdc85e5d60592&x-amz-limitrate=10240&x-amz-CLOUDTYPEIN=PERSON&x-amz-CLIENTTYPEIN=WEB&Signature=SuttkXofGuDKfkYkykGnRDXR%2Bgg%3D
+  ROM_URL: https://cloud189-xizang-person.oos-xzls.ctyunapi.cn/0577050c-0ec6-43c3-aac9-34c875ddc7ac?x-amz-UFID=11301210627642217&x-amz-CLIENTNETWORK=UNKNOWN&x-amz-SHID=169357749&x-amz-FSIZE=2481224573&Expires=1592467653&x-amz-UID=741439743&response-content-disposition=attachment%3Bfilename%3D%22miui_MI6%C3%A6%C2%B5%C2%8B%C3%A8%C2%AF%C2%95_9.0.zip%22&AWSAccessKeyId=532482dfdc85e5d60592&x-amz-limitrate=10240&x-amz-CLOUDTYPEIN=PERSON&x-amz-CLIENTTYPEIN=WEB&Signature=keeK3GycZ509mAUJpLGa1JNkbiY%3D
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
@@ -55,12 +55,12 @@ jobs:
        
        - name: 7z Aonly GSI
          run: |
-           7za a -t7z -r 0617.7z ErfanGSIs/output/*
+           7za a -t7z -r 0618.7z ErfanGSIs/output/*
        
        - name: Upload Aonly GSI to WeTransfer
          run: |
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet 0617.7z
+              ./transfer wet 0618.7z
            
 #       - name: Make clean
 #         run: sudo rm -rf ErfanGSIs/output/*

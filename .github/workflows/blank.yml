@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://hugeota.d.miui.com/20.6.18/miui_HMNote5_20.6.18_887af1fbe4_9.0.zip
+  ROM_URL: https://58-49-136-7.ksyungslb.com/bigota.d.miui.com/20.6.23/miui_MI8Lite_20.6.23_89751d475b_10.0.zip?ksy_gslb_referer=https%3A%2F%2Fgithub.com%2FmooseIre%2Fupdate_miui_ota%2Fblob%2Fmaster%2FDevelop%2F%25E5%25B0%258F%25E7%25B1%25B38%25E9%259D%2592%25E6%2598%25A5%25E7%2589%2588.md
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
@@ -56,12 +56,12 @@ jobs:
        
        - name: 7z Aonly GSI
          run: |
-           7za a -t7z -r 0625.7z ErfanGSIs/output/*
+           7za a -t7z -r 0625_10.7z ErfanGSIs/output/*
        
        - name: Upload Aonly GSI to WeTransfer
          run: |
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet 0625.7z
+              ./transfer wet 0625_10.7z
            
 #       - name: Make clean
 #         run: sudo rm -rf ErfanGSIs/output/*

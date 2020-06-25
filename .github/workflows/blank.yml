@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://cloud189-xizang-person.oos-xzls.ctyunapi.cn/f71d34cc-98f8-4e3f-80de-63f052c1e3dc?x-amz-UFID=81547210159238555&x-amz-CLIENTNETWORK=UNKNOWN&x-amz-SHID=169358309&x-amz-FSIZE=2165191881&Expires=1592481241&x-amz-UID=741439743&response-content-disposition=attachment%3Bfilename%3D%22miui_MI6%C3%A6%C2%B5%C2%8B%C3%A8%C2%AF%C2%95_9.0.zip%22&AWSAccessKeyId=532482dfdc85e5d60592&x-amz-limitrate=10240&x-amz-CLOUDTYPEIN=PERSON&x-amz-CLIENTTYPEIN=WEB&Signature=6xr6TXhvNOOR1MIFG/hNHclnyFc%3D
+  ROM_URL: https://hugeota.d.miui.com/20.6.18/miui_HMNote5_20.6.18_887af1fbe4_9.0.zip
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 

@@ -14,7 +14,7 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://58-49-136-7.ksyungslb.com/bigota.d.miui.com/20.6.23/miui_MI8Lite_20.6.23_89751d475b_10.0.zip?ksy_gslb_referer=https%3A%2F%2Fgithub.com%2FmooseIre%2Fupdate_miui_ota%2Fblob%2Fmaster%2FDevelop%2F%25E5%25B0%258F%25E7%25B1%25B38%25E9%259D%2592%25E6%2598%25A5%25E7%2589%2588.md
+  ROM_URL: https://cloud189-liaoning-person.oos-lnsy.ctyunapi.cn/cc638dbb-70c5-4e8e-8fe2-b83005dba654?x-amz-UFID=31541210319414179&x-amz-CLIENTNETWORK=UNKNOWN&x-amz-SHID=169447583&x-amz-FSIZE=1636795795&Expires=1593710087&x-amz-UID=741439743&response-content-disposition=attachment%3Bfilename%3D%22mi6.zip%22&AWSAccessKeyId=532482dfdc85e5d60592&x-amz-limitrate=10240&x-amz-CLOUDTYPEIN=PERSON&x-amz-CLIENTTYPEIN=WEB&Signature=LhjB3SCxpfYfN%2B8D1S/30xDDCV4%3D
   ROM_NAME: MIUI
   TZ: Asia/Shanghai
 
@@ -56,12 +56,12 @@ jobs:
        
        - name: 7z Aonly GSI
          run: |
-           7za a -t7z -r 0625_10.7z ErfanGSIs/output/*
+           7za a -t7z -r 0702.7z ErfanGSIs/output/*
        
        - name: Upload Aonly GSI to WeTransfer
          run: |
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet 0625_10.7z
+              ./transfer wet 0702.7z
            
 #       - name: Make clean
 #         run: sudo rm -rf ErfanGSIs/output/*
